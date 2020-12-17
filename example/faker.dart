@@ -14,6 +14,7 @@ void main() {
   print(faker.job.title());
   print(faker.person.firstName());
   print(faker.sport.name());
+  print(faker.phone.number('+40'));
 
   // Generate a random amount of IP v4 addresses (max 10).
   print(random.amount((_) => faker.internet.ipv4Address(), 10));
