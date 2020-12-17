@@ -5,6 +5,7 @@ import 'data/person/lastnames.dart';
 import 'random_generator.dart';
 
 class Internet {
+  static const _passwordAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   static const _hosts = ['gmail.com', 'yahoo.com', 'hotmail.com'];
   static const _domainSuffixes = [
     'co.uk',
@@ -23,9 +24,10 @@ class Internet {
     'safetymail.info'
   ];
 
-  const Internet(this.random);
+  Internet(this.random);
 
   final RandomGenerator random;
+  final StringBuffer _stringBuffer = StringBuffer();
 
   /// Generates an email from the [userName] and [domainName] methods.
   ///
@@ -152,7 +154,19 @@ class Internet {
   /// ```dart
   ///   faker.internet.password();
   /// ```
-  String password({int length = 10}) => random.string(length, min: length);
+  String password({int length}) {
+    final int maxRandom = _passwordAlphabet.length;
+
+    length ??= 12;
+    assert(length != null && length > 0);
+
+    _stringBuffer.clear();
+    for(int i = 0; i < length; ++i) {
+      _stringBuffer.write(_passwordAlphabet[random.integer(maxRandom)]);
+    }
+
+    return _stringBuffer.toString();
+  }
 
   /// Generates an User Agent from Predefined Dictionary
   /// with the given [osName] if provided.
