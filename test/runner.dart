@@ -7,7 +7,6 @@ import 'specs/guid.dart' as guid;
 import 'specs/image.dart' as image;
 import 'specs/internet.dart' as internet;
 import 'specs/job.dart' as job;
-import 'specs/lorem.dart' as lorem;
 import 'specs/person.dart' as person;
 import 'specs/sport.dart' as sport;
 import 'specs/date.dart' as date;
@@ -24,7 +23,6 @@ void main() {
   image.main();
   internet.main();
   job.main();
-  lorem.main();
   person.main();
   sport.main();
   date.main();

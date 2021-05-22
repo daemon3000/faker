@@ -3,7 +3,7 @@ import 'dart:math';
 final random = RandomGenerator();
 
 class RandomGenerator {
-  RandomGenerator({int seed}):
+  RandomGenerator({int? seed}):
     _random = Random(seed);
 
   final Random _random;
@@ -17,7 +17,7 @@ class RandomGenerator {
   /// and by the number of [times].
   ///
   /// Returns a list of numbers.
-  List<int> numbers(num max, num times) {
+  List<int> numbers(int max, int times) {
     var number = <int>[];
 
     for (var i = 0; i < times; i++) {
@@ -43,7 +43,7 @@ class RandomGenerator {
 
   /// Generates a random decimal.
   /// Accepts a [scale] and a [min] value.
-  double decimal({num scale = 1, num min = 0}) =>
+  double decimal({double scale = 1, double min = 0}) =>
       _random.nextDouble() * scale + min;
 
   /// Generates a random string with the given [max] value

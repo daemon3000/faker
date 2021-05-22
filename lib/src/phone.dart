@@ -15,11 +15,11 @@ class Phone {
   ///   faker.phone.number();
   ///   faker.phone.number('+40');
   /// ```
-  String number([String countryCode]) {
+  String number([String? countryCode]) {
     if(countryCode == null || !phoneNumbers.containsKey(countryCode)) {
       countryCode = random.element(countryCodes);
     }
 
-    return random.element(phoneNumbers[countryCode]);
+    return random.element(phoneNumbers[countryCode]!);
   }
 }
