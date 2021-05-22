@@ -154,7 +154,7 @@ class Internet {
   /// ```dart
   ///   faker.internet.password();
   /// ```
-  String password({int length}) {
+  String password({int? length}) {
     final int maxRandom = _passwordAlphabet.length;
 
     length ??= 12;
